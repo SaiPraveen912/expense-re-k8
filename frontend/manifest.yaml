@@ -120,7 +120,7 @@ spec:
       containers:
       - name: frontend
         image: saipraveen91/frontend:v1.0
-        volumeMounts: 
+        volumeMounts:
         - name: nginx-conf
           mountPath: /etc/nginx/nginx.conf
           subPath: nginx.conf
@@ -135,7 +135,6 @@ spec:
           items:
           - key: nginx.conf
             path: nginx.conf
-
 ---
 apiVersion: v1
 kind: Service
@@ -150,6 +149,6 @@ spec:
     tier: web
   ports:
   - protocol: TCP
-    port: 8080 #service-port
+    port: 80 #service-port
     targetPort: 8080 #target-port
-    
+     
