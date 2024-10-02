@@ -25,4 +25,21 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: saipraveen91/mysql:v1.0       
+        image: saipraveen91/mysql:v1.0  
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+  namespace: expense
+spec:
+  selector:
+    component: mysql
+    project: expense
+    tier: db
+  ports:
+  - protocol: TCP
+    port: 3306 #service-port
+    targetPort: 3306 #target-port
+    
